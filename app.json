@@ -1,0 +1,47 @@
+{
+  "name": "Force Sub Bot",
+  "description": "Telegram's best Foruce Subscribe Bot",
+  "keywords": [
+    "telegram",
+    "best",
+    "force sub Bot"
+  ],
+  "success_url": "https://t.me/DForDarkAngel",
+  "website": "https://github.com/Jijinr/force-subscribe-telegram-bot",
+  "repository": "https://github.com/Jijinr/force-subscribe-telegram-bot",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your bot token, as a string.",
+      "value": ""
+    },
+    "APP_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+    },
+    "SUDO_USERS": {
+      "description": "allow only pre-defined users to use this bot",
+      "value": "809546777"
+    }
+  },
+  "addons": [
+    {
+    "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }
+  ],
+  "buildpacks": [{
+    "url": "heroku/python"
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
