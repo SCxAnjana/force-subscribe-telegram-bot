@@ -14,6 +14,10 @@
       "description": "Your bot token, as a string.",
       "value": ""
     },
+    "ENV": {
+      "description": "😎",
+      "value": "False"
+    },
     "APP_ID": {
       "description": "Get this value from https://my.telegram.org",
       "value": ""
