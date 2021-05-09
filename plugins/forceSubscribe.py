@@ -49,12 +49,16 @@ def _check_member(client, message):
         client.get_chat_member(channel, user_id)
       except UserNotParticipant:
         try:
+          buttons = [[
+              InlineKeyboardButton('Join Channel', url=f"https://t.me/{channel}")
+          ],[
+              InlineKeyboardButton('Unmute Me', callback_data='onUnMuteRequest')
+          ]]
+          reply_markup = InlineKeyboardMarkup(buttons)
           sent_message = message.reply_text(
-              "{}, you are **not subscribed** to my [channel](https://t.me/{}) yet. Please [join](https://t.me/{}) and **press the button below** to unmute yourself.".format(message.from_user.mention, channel, channel),
+              "{}, you are **not subscribed** to my channel yet. Please join and **press the button below** to unmute yourself.".format(message.from_user.mention),
               disable_web_page_preview=True,
-              reply_markup=InlineKeyboardMarkup(
-                  [[InlineKeyboardButton("UnMute Me", callback_data="onUnMuteRequest")]]
-              )
+              reply_markup=reply_markup
           )
           client.restrict_chat_member(chat_id, user_id, ChatPermissions(can_send_messages=False))
         except ChatAdminRequired:
