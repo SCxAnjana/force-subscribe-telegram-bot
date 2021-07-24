@@ -25,15 +25,15 @@ def _onUnMuteRequest(client, cb):
             if cb.message.reply_to_message.from_user.id == user_id:
               cb.message.delete()
           except UserNotParticipant:
-            client.answer_callback_query(cb.id, text="❗ Join the mentioned 'channel' and press the 'UnMute Me' button again.", show_alert=True)
+            client.answer_callback_query(cb.id, text="❗ 𝗝𝗼𝗶𝗻 𝘁𝗵𝗲 𝗺𝗲𝗻𝘁𝗶𝗼𝗻𝗲𝗱 '𝗰𝗵𝗮𝗻𝗻𝗲𝗹' 𝗮𝗻𝗱 𝗽𝗿𝗲𝘀𝘀 𝘁𝗵𝗲 '𝗨𝗻𝗠𝘂𝘁𝗲 𝗠𝗲' 𝗯𝘂𝘁𝘁𝗼𝗻 𝗮𝗴𝗮𝗶𝗻. ❗ සදහන් කල චැනලයට Join වී 'UnMute Me' බටනය ක්ලික් කරන්න.", show_alert=True)
       else:
-        client.answer_callback_query(cb.id, text="❗ You are muted by admins for other reasons.", show_alert=True)
+        client.answer_callback_query(cb.id, text="❗ 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗺𝘂𝘁𝗲𝗱 𝗯𝘆 𝗮𝗱𝗺𝗶𝗻𝘀 𝗳𝗼𝗿 𝗼𝘁𝗵𝗲𝗿 𝗿𝗲𝗮𝘀𝗼𝗻𝘀. ❗ වෙන හේතුවක් මත admin වරයකු විසින් Mute කර ඇත.", show_alert=True)
     else:
       if not client.get_chat_member(chat_id, (client.get_me()).id).status == 'administrator':
         client.send_message(chat_id, f"❗ **{cb.from_user.mention} is trying to UnMute himself but i can't unmute him because i am not an admin in this chat add me as admin again.**\n__#Leaving this chat...__")
         client.leave_chat(chat_id)
       else:
-        client.answer_callback_query(cb.id, text="❗ Warning: Don't click the button if you can speak freely.", show_alert=True)
+        client.answer_callback_query(cb.id, text="❗ 𝗪𝗮𝗿𝗻𝗶𝗻𝗴: 𝗗𝗼𝗻'𝘁 𝗰𝗹𝗶𝗰𝗸 𝘁𝗵𝗲 𝗯𝘂𝘁𝘁𝗼𝗻 𝗶𝗳 𝘆𝗼𝘂 𝗰𝗮𝗻 𝘀𝗽𝗲𝗮𝗸 𝗳𝗿𝗲𝗲𝗹𝘆. ❗ ඔබට සමූහය තුල පණිවුඩ දැමිය හැකිනම් බටනය ක්ලික් නොකරන්න.", show_alert=True)
 
 
 
@@ -50,13 +50,13 @@ def _check_member(client, message):
       except UserNotParticipant:
         try:
           buttons = [[
-              InlineKeyboardButton('Join Channel', url=f"https://t.me/{channel}")
+              InlineKeyboardButton('𝗝𝗼𝗶𝗻 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 📛', url=f"https://t.me/{channel}")
           ],[
-              InlineKeyboardButton('Unmute Me', callback_data='onUnMuteRequest')
+              InlineKeyboardButton('𝗨𝗻𝗠𝘂𝘁𝗲 𝗠𝗲 ✅', callback_data='onUnMuteRequest')
           ]]
           reply_markup = InlineKeyboardMarkup(buttons)
           sent_message = message.reply_text(
-              "{}, you are **not subscribed** to my channel yet. Please join and **press the button below** to unmute yourself.".format(message.from_user.mention),
+              "{}, 𝘆𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱 𝘁𝗼 𝗺𝘆 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝘆𝗲𝘁. 𝗣𝗹𝗲𝗮𝘀𝗲 𝗷𝗼𝗶𝗻 𝗮𝗻𝗱 𝗽𝗿𝗲𝘀𝘀 𝘁𝗵𝗲 𝗯𝘂𝘁𝘁𝗼𝗻 𝗯𝗲𝗹𝗼𝘄 𝘁𝗼 𝘂𝗻𝗺𝘂𝘁𝗲 𝘆𝗼𝘂𝗿𝘀𝗲𝗹𝗳.ඔයා තාම අපේ චැනල් එකට Joine වෙලා නෑ Join වූ පසු පහල බටනය ක්ලික් කර Unmute කරන්න.".format(message.from_user.mention),
               disable_web_page_preview=True,
               reply_markup=reply_markup
           )
