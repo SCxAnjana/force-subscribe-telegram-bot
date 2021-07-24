@@ -8,7 +8,7 @@
   ],
   "success_url": "https://t.me/DForDarkAngel",
   "website": "https://github.com/Jijinr/force-subscribe-telegram-bot",
-  "repository": "https://github.com/Jijinr/force-subscribe-telegram-bot",
+  "repository": "https://github.com/scprojectslk/force-subscribe-telegram-bot",
   "env": {
     "BOT_TOKEN": {
       "description": "Your bot token, as a string.",
