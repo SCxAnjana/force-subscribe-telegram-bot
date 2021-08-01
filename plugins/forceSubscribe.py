@@ -55,7 +55,7 @@ def _check_member(client, message):
               InlineKeyboardButton('𝗨𝗻𝗠𝘂𝘁𝗲 𝗠𝗲 ✅', callback_data='onUnMuteRequest')
           ]]
           reply_markup = InlineKeyboardMarkup(buttons)
-          sent_message = client.send_photo(
+          sent_message = client.send_file(
               message.chat.id,
               'pic.jpg',
               caption=f"{message.from_user.mention} ඔයා තාම අපේ Youtube Updates Channel එකට Join වෙලා නැහැනේ 😕 Please ඒකට Join වෙලා. පහල Unmute Button එක දෙන්න..🤗 \nඑතකොට ඔයාට ලේසියෙන්ම අපේ Group එකෙන් Fims & Tv Series ලබාගන්න පුලුවන් වේවී😊👍,😕 𝘆𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱 𝘁𝗼 𝗺𝘆 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝘆𝗲𝘁. 𝗣𝗹𝗲𝗮𝘀𝗲 𝗷𝗼𝗶𝗻 𝗮𝗻𝗱 𝗽𝗿𝗲𝘀𝘀 𝘁𝗵𝗲 𝗯𝘂𝘁𝘁𝗼𝗻 𝗯𝗲𝗹𝗼𝘄 𝘁𝗼 𝘂𝗻𝗺𝘂𝘁𝗲 𝘆𝗼𝘂𝗿𝘀𝗲𝗹𝗳 😊.",
