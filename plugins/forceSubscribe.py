@@ -53,6 +53,8 @@ def _check_member(client, message):
               InlineKeyboardButton('𝗝𝗼𝗶𝗻 𝗡𝗼𝘄 📛', url=f"https://t.me/{channel}")
           ],[
               InlineKeyboardButton('𝗨𝗻𝗠𝘂𝘁𝗲 𝗠𝗲 ✅', callback_data='onUnMuteRequest')
+          ],[
+              InlineKeyboardButton('𝗦𝗲𝗲 𝗧𝗿𝗮𝗻𝘀𝗹𝗮𝘁𝗶𝗼𝗻𝘀 📗', url="https://t.me/Gataya_Official_Youtube_Updates/70")
           ]]
           reply_markup = InlineKeyboardMarkup(buttons)
           sent_message = client.send_file(
