@@ -52,7 +52,7 @@ def _check_member(client, message):
           buttons = [[
               InlineKeyboardButton('Join Now ✅', url=f"https://t.me/{channel}")
           ],[
-              InlineKeyboardButton('Unmute Me 🔥', callback_data='onUnMuteRequest')
+              InlineKeyboardButton('UnMute Me 🔥', callback_data='onUnMuteRequest')
           ]]
           reply_markup = InlineKeyboardMarkup(buttons)
           sent_message = message.reply_text(
