@@ -25,15 +25,15 @@ def _onUnMuteRequest(client, cb):
             if cb.message.reply_to_message.from_user.id == user_id:
               cb.message.delete()
           except UserNotParticipant:
-            client.answer_callback_query(cb.id, text="❗ අපේ Youtube Updates Channel එක Join වී 'UnMute Me' බටනය Click කරන්න 😕.❗ 𝗝𝗼𝗶𝗻 𝘁𝗵𝗲 𝗺𝗲𝗻𝘁𝗶𝗼𝗻𝗲𝗱 '𝗰𝗵𝗮𝗻𝗻𝗲𝗹' 𝗮𝗻𝗱 𝗽𝗿𝗲𝘀𝘀 𝘁𝗵𝗲 '𝗨𝗻𝗠𝘂𝘁𝗲 𝗠𝗲' 𝗯𝘂𝘁𝘁𝗼𝗻 𝗮𝗴𝗮𝗶𝗻.😕", show_alert=True)
+            client.answer_callback_query(cb.id, text="❗ අපේ Channel එකට Join වෙලා 'UnMute Me' button එක දෙන්න 😊. ❗ Join the mentioned 'channel' and press the 'UnMute Me' button again.", show_alert=True)
       else:
-        client.answer_callback_query(cb.id, text="❗ වෙනත් හේතුවක් මත Admin වරයකු විසින් Mute කර ඇත 🙁.❗ 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗺𝘂𝘁𝗲𝗱 𝗯𝘆 𝗮𝗱𝗺𝗶𝗻𝘀 𝗳𝗼𝗿 𝗼𝘁𝗵𝗲𝗿 𝗿𝗲𝗮𝘀𝗼𝗻𝘀 🙁. ❗", show_alert=True)
+        client.answer_callback_query(cb.id, text="❗ සමූහයේ admin වරුන් වෙනත් හේතුවක් මත Mute කර ඇත. ❗ You are muted by admins for other reasons.", show_alert=True)
     else:
       if not client.get_chat_member(chat_id, (client.get_me()).id).status == 'administrator':
         client.send_message(chat_id, f"❗ **{cb.from_user.mention} is trying to UnMute himself but i can't unmute him because i am not an admin in this chat add me as admin again.**\n__#Leaving this chat...__")
         client.leave_chat(chat_id)
       else:
-        client.answer_callback_query(cb.id, text="❗ සමූහය තුල මැසේජ් දැමිය හැකිනම් මෙය Click කිරීමෙන් වළකින්න 🙄. ❗ 𝗪𝗮𝗿𝗻𝗶𝗻𝗴: 𝗗𝗼𝗻'𝘁 𝗰𝗹𝗶𝗰𝗸 𝘁𝗵𝗲 𝗯𝘂𝘁𝘁𝗼𝗻 𝗶𝗳 𝘆𝗼𝘂 𝗰𝗮𝗻 𝘀𝗽𝗲𝗮𝗸 𝗳𝗿𝗲𝗲𝗹𝘆 🙄.", show_alert=True)
+        client.answer_callback_query(cb.id, text="❗ සමූහයේ පණිවුඩ දැමිය හැකිනම් මෙය click නොකරන්න 😷. ❗ Warning: Don't click the button if you can speak freely 😷.", show_alert=True)
 
 
 
@@ -50,20 +50,15 @@ def _check_member(client, message):
       except UserNotParticipant:
         try:
           buttons = [[
-              InlineKeyboardButton('𝗝𝗼𝗶𝗻 𝗡𝗼𝘄 📛', url=f"https://t.me/{channel}")
+              InlineKeyboardButton('Join Now ✅', url=f"https://t.me/{channel}")
           ],[
-              InlineKeyboardButton('𝗨𝗻𝗠𝘂𝘁𝗲 𝗠𝗲 ✅', callback_data='onUnMuteRequest')
+              InlineKeyboardButton('Unmute Me 🔥', callback_data='onUnMuteRequest')
           ]]
           reply_markup = InlineKeyboardMarkup(buttons)
           sent_message = message.reply_text(
-          "{}, ඔයා තාම අපේ Youtube Updates Channel එකට Join වෙලා නැහැනේ 😕 Please ඒකට Join වෙලා. පහල Unmute Button එක දෙන්න 🤗 එතකොට ඔයාට ලේසියෙන්ම අපේ Group එකෙන් Fims & Tv Series ලබාගන්න පුලුවන් වේවී😊👍,😕 𝘆𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱 𝘁𝗼 𝗺𝘆 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝘆𝗲𝘁. 𝗣𝗹𝗲𝗮𝘀𝗲 𝗷𝗼𝗶𝗻 𝗮𝗻𝗱 𝗽𝗿𝗲𝘀𝘀 𝘁𝗵𝗲 𝗯𝘂𝘁𝘁𝗼𝗻 𝗯𝗲𝗹𝗼𝘄 𝘁𝗼 𝘂𝗻𝗺𝘂𝘁𝗲 𝘆𝗼𝘂𝗿𝘀𝗲𝗹𝗳 😊.".format(message.from_user.mention), 
-          disable_web_page_preview=True, 
-          sent_message = client.send_document(
-          message.chat.id, 
-          'pic.jpg' 
-          caption=f"{message.from_user.mention}, ඔයා තාම අපේ Youtube Updates Channel එකට Join වෙලා නැහැනේ 😕 Please ඒකට Join වෙලා. පහල Unmute Button එක දෙන්න 🤗 එතකොට ඔයාට ලේසියෙන්ම අපේ Group එකෙන් Fims & Tv Series ලබාගන්න පුලුවන් වේවී😊👍,😕 𝘆𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱 𝘁𝗼 𝗺𝘆 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝘆𝗲𝘁. 𝗣𝗹𝗲𝗮𝘀𝗲 𝗷𝗼𝗶𝗻 𝗮𝗻𝗱 𝗽𝗿𝗲𝘀𝘀 𝘁𝗵𝗲 𝗯𝘂𝘁𝘁𝗼𝗻 𝗯𝗲𝗹𝗼𝘄 𝘁𝗼 𝘂𝗻𝗺𝘂𝘁𝗲 𝘆𝗼𝘂𝗿𝘀𝗲𝗹𝗳 😊.", 
-          reply_to_message_id=message.message_id, 
-          reply_markup=reply_markup
+              "{}, ඔයා තාම අපේ Youtube Updates Channel එකට Join වෙලා නැහැනේ 😕 Please ඒකට Join වෙලා. පහල Unmute Button එක දෙන්න..🤗 එතකොට ඔයාට ලේසියෙන්ම අපේ Group එකෙන් Fims & Tv Series ලබාගන්න පුලුවන් වේවී😊👍,😕 𝘆𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱 𝘁𝗼 𝗺𝘆 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝘆𝗲𝘁. 𝗣𝗹𝗲𝗮𝘀𝗲 𝗷𝗼𝗶𝗻 𝗮𝗻𝗱 𝗽𝗿𝗲𝘀𝘀 𝘁𝗵𝗲 𝗯𝘂𝘁𝘁𝗼𝗻 𝗯𝗲𝗹𝗼𝘄 𝘁𝗼 𝘂𝗻𝗺𝘂𝘁𝗲 𝘆𝗼𝘂𝗿𝘀𝗲𝗹𝗳 😊.".format(message.from_user.mention),
+              disable_web_page_preview=True,
+              reply_markup=reply_markup
           )
           client.restrict_chat_member(chat_id, user_id, ChatPermissions(can_send_messages=False))
         except ChatAdminRequired:
