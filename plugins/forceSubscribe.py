@@ -54,7 +54,7 @@ def _check_member(client, message):
           ],[
               InlineKeyboardButton('UnMute Me 🔥', callback_data='onUnMuteRequest')
           ],[ 
-              InlineKeyboardButton('See Translations 📗', url="https://t.me/c/1227196853/19965")
+              InlineKeyboardButton('See Translations 📗', url="https://t.me/Gataya_Official_Youtube_Updates/70")
           ]]
           reply_markup = InlineKeyboardMarkup(buttons)
           sent_message = message.reply_text(
