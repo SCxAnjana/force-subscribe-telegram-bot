@@ -1,6 +1,5 @@
 # Introduction
 **A Telegram Bot to force users to join a specific channel before sending messages in a group.**
-- Find it on Telegram as [Promoter](https://t.me/ForceSubscribeBot)
 
 ### Deploy to Heroku
 <p><a href="https://heroku.com/deploy?template=https://github.com/SCxAnjana/force-subscribe-telegram-bot)"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
@@ -8,7 +7,7 @@
 ### Installation
 - Clone this repo
 ```
-git clone https://github.com/viperadnan-git/force-subscribe-telegram-bot
+git clone https://github.com/SCxAnjana/force-subscribe-telegram-bot
 ```
 - Change directory
 ```
