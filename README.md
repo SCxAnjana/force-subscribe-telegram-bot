@@ -3,7 +3,7 @@
 - Find it on Telegram as [Promoter](https://t.me/ForceSubscribeBot)
 
 ### Deploy to Heroku
-<p><a href="https://heroku.com/deploy?template=https://github.com/SCXAnjana/force-subscribe-telegram-bot"> <img src="https://img.shields.io/badge/Deploy%20Guide-blueviolet?style=for-the-badge&logo=heroku" width="180""/></a></p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/SCxAnjana/force-subscribe-telegram-bot)"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
 
 ### Installation
 - Clone this repo
